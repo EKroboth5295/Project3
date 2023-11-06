@@ -29,9 +29,9 @@ export class TvApp extends LitElement {
     return [
       css`
       :host {
-        display: block;
-        margin: 16px;
-        padding: 16px;
+        display: flex;
+        margin-top: 30px;
+        gap: 30px;
       }
       `
     ];
