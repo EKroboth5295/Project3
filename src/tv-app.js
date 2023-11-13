@@ -3,6 +3,7 @@ import { LitElement, html, css } from 'lit';
 import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import "./tv-channel.js";
+import "@lrnwebcomponents/video-player/video-player.js";
 
 export class TvApp extends LitElement {
   // defaults
@@ -22,16 +23,55 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
+
+      channels: { type: Object }
     };
   }
   // LitElement convention for applying styles JUST to our element
   static get styles() {
     return [
       css`
-      :host {
+      :host { 
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .left-item {
+        grid-column: 1;
+        margin-top: 50px;
+      }
+      .right-item {
+        grid-column: 2;
+        width: 200px;
+        margin-left: 110px;
+        margin-top: 15px;
+        text-align: center;
+      }
+      .listing {
+        margin: 10px;
+      }
+      .slideclicker {
         display: flex;
-        margin-top: 30px;
-        gap: 30px;
+        flex-direction: row;
+        text-align: center;
+        gap: 375px;
+        margin-bottom: 20px;
+      }
+      .previous-slide {
+        font-size: 20px;
+        background-color: #eeeeee;
+        width: 200px;
+        height: 50px;
+        padding-top: 22px;
+      }
+      .next-slide {
+        font-size: 20px;
+        background-color: #eeeeee;
+        width: 200px;
+        height: 50px;
+        padding-top: 22px;
       }
       `
     ];
@@ -39,28 +79,42 @@ export class TvApp extends LitElement {
   // LitElement rendering template of your element
   render() {
     return html`
-      <h2>${this.name}</h2>
-      ${
-        this.listings.map(
-          (item) => html`
-            <tv-channel 
-              title="${item.title}"
-              presenter="${item.metadata.author}"
-              @click="${this.itemClick}"
-            >
-            </tv-channel>
-          `
-        )
-      }
-      <div>
-        <!-- video -->
-        <!-- discord / chat - optional -->
+    <div class="container">
+      <div class="grid-item">
+        <div class="left-item">
+          <video-player source="https://www.youtube.com/watch?v=3jS_yEK8qVI" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
+        </div>
+        <tv-channel title="MrBeast Youtube" presenter="MrBeast">
+          Worlds Most Dangerous Escape Room!
+        </tv-channel>
+      </div>
+      <div class="right-item">
+        <h2>${this.name}</h2>
+        ${
+          this.listings.map(
+            (item) => html`
+              <tv-channel
+                title="${item.title}"
+                presenter="${item.metadata.author}"
+                @click="${this.itemClick}"
+                class="listing"
+              >
+              </tv-channel>
+            `
+          )
+        }
       </div>
       <!-- dialog -->
       <sl-dialog label="Dialog" class="dialog">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         <sl-button slot="footer" variant="primary" @click="${this.closeDialog}">Close</sl-button>
       </sl-dialog>
+    </div>
+    <div class="slideclicker">
+      <div class = "previous-slide"> Previous Slide</div>
+      <div class = "next-slide"> Next Slide</div>
+    </div>
+
     `;
   }
 
