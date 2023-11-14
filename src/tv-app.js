@@ -23,7 +23,6 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
-
       channels: { type: Object }
     };
   }
@@ -49,7 +48,7 @@ export class TvApp extends LitElement {
         margin-top: 15px;
         text-align: center;
       }
-      .listing {
+      .channels {
         margin: 10px;
       }
       .slideclicker {
@@ -97,7 +96,7 @@ export class TvApp extends LitElement {
                 title="${item.title}"
                 presenter="${item.metadata.author}"
                 @click="${this.itemClick}"
-                class="listing"
+                class="channels"
               >
               </tv-channel>
             `
