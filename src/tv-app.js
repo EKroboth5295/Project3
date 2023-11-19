@@ -4,6 +4,7 @@ import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import "./tv-channel.js";
 import "@lrnwebcomponents/video-player/video-player.js";
+import { VideoPlayer } from '@lrnwebcomponents/video-player/video-player.js';
 
 export class TvApp extends LitElement {
   // defaults
@@ -12,6 +13,7 @@ export class TvApp extends LitElement {
     this.name = '';
     this.source = new URL('../assets/channels.json', import.meta.url).href;
     this.listings = [];
+    this.activeItem = '45';
   }
   // convention I enjoy using to define the tag's name
   static get tag() {
@@ -23,7 +25,7 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
-      channels: { type: Object }
+      channels: { type: Object },
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -43,12 +45,16 @@ export class TvApp extends LitElement {
       }
       .right-item {
         grid-column: 2;
-        width: 200px;
+        width: 250px;
         margin-left: 110px;
         margin-top: 15px;
         text-align: center;
+        height: 95vh;
+        overflow-y: auto;
+        padding: 10px;
+        -webkit-overflow-scrolling: touch;
       }
-      .channels {
+      .listing {
         margin: 10px;
       }
       .slideclicker {
@@ -96,7 +102,7 @@ export class TvApp extends LitElement {
                 title="${item.title}"
                 presenter="${item.metadata.author}"
                 @click="${this.itemClick}"
-                class="channels"
+                class="listing"
               >
               </tv-channel>
             `
