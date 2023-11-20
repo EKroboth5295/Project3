@@ -7,6 +7,7 @@ export class TvChannel extends LitElement {
     super();
     this.title = '';
     this.video = '';
+    this.timecode = 0;
     this.presenter = '';
   }
   // convention I enjoy using to define the tag's name
@@ -18,6 +19,7 @@ export class TvChannel extends LitElement {
     return {
       title: { type: String },
       video: { type: String },
+      timecode: { type: Number },
       presenter: { type: String },
     };
   }

@@ -13,7 +13,6 @@ export class TvApp extends LitElement {
     this.name = '';
     this.source = new URL('../assets/channels.json', import.meta.url).href;
     this.listings = [];
-    this.activeItem = '45';
   }
   // convention I enjoy using to define the tag's name
   static get tag() {
@@ -25,14 +24,14 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
-      channels: { type: Object },
     };
   }
   // LitElement convention for applying styles JUST to our element
   static get styles() {
     return [
       css`
-      :host { 
+      :host {
+
       }
 
       .container {
@@ -54,29 +53,26 @@ export class TvApp extends LitElement {
         padding: 10px;
         -webkit-overflow-scrolling: touch;
       }
-      .listing {
+      tv-channel {
         margin: 10px;
       }
       .slideclicker {
         display: flex;
         flex-direction: row;
-        text-align: center;
         gap: 375px;
         margin-bottom: 20px;
       }
       .previous-slide {
+        display: inline-block;
         font-size: 20px;
-        background-color: #eeeeee;
         width: 200px;
         height: 50px;
-        padding-top: 22px;
       }
       .next-slide {
+        display: inline-block;
         font-size: 20px;
-        background-color: #eeeeee;
         width: 200px;
         height: 50px;
-        padding-top: 22px;
       }
       `
     ];
@@ -89,8 +85,8 @@ export class TvApp extends LitElement {
         <div class="left-item">
           <video-player source="https://www.youtube.com/watch?v=3jS_yEK8qVI" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
         </div>
-        <tv-channel title="MrBeast Youtube" presenter="MrBeast">
-          Worlds Most Dangerous Escape Room!
+        <tv-channel title="Worlds Most Dangerous Escape Room!" presenter="MrBeast">
+          Trying to escape from a challenging escape room that has 10 levels.
         </tv-channel>
       </div>
       <div class="right-item">
@@ -102,7 +98,6 @@ export class TvApp extends LitElement {
                 title="${item.title}"
                 presenter="${item.metadata.author}"
                 @click="${this.itemClick}"
-                class="listing"
               >
               </tv-channel>
             `
@@ -116,10 +111,9 @@ export class TvApp extends LitElement {
       </sl-dialog>
     </div>
     <div class="slideclicker">
-      <div class = "previous-slide"> Previous Slide</div>
-      <div class = "next-slide"> Next Slide</div>
+      <button class="previous-slide">Previous Slide</button>
+      <button class="next-slide">Next Slide</button>
     </div>
-
     `;
   }
 
