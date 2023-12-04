@@ -42,7 +42,7 @@ export class TvChannel extends LitElement {
         <h3>${this.video}</h3>
         <h4>${this.presenter}</h4>
         <slot></slot>
-      </div>  
+      </div>
       `;
   }
 }

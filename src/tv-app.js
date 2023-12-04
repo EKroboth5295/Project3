@@ -13,6 +13,7 @@ export class TvApp extends LitElement {
     this.name = '';
     this.source = new URL('../assets/channels.json', import.meta.url).href;
     this.listings = [];
+    this.active = "";
   }
   // convention I enjoy using to define the tag's name
   static get tag() {
@@ -24,6 +25,7 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
+      active: { type: String }
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -45,10 +47,10 @@ export class TvApp extends LitElement {
       .right-item {
         grid-column: 2;
         width: 250px;
-        margin-left: 110px;
-        margin-top: 15px;
+        margin-left: 20px;
+        margin-top: 50px;
         text-align: center;
-        height: 95vh;
+        height: 493px;
         overflow-y: auto;
         padding: 10px;
         -webkit-overflow-scrolling: touch;
@@ -98,6 +100,7 @@ export class TvApp extends LitElement {
                 title="${item.title}"
                 presenter="${item.metadata.author}"
                 @click="${this.itemClick}"
+                timecode="${item.metadata.timecode}"
               >
               </tv-channel>
             `
@@ -124,8 +127,9 @@ export class TvApp extends LitElement {
 
   itemClick(e) {
     console.log(e.target);
-    const dialog = this.shadowRoot.querySelector('.dialog');
-    dialog.show();
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector("a11y-media-player").media.currentTime
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').play()
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(e.target.timecode)
   }
 
   // LitElement life cycle for when any property changes
