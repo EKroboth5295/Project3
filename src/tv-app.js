@@ -4,7 +4,6 @@ import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import "./tv-channel.js";
 import "@lrnwebcomponents/video-player/video-player.js";
-import { VideoPlayer } from '@lrnwebcomponents/video-player/video-player.js';
 
 export class TvApp extends LitElement {
   // defaults
@@ -13,8 +12,9 @@ export class TvApp extends LitElement {
     this.name = '';
     this.source = new URL('../assets/channels.json', import.meta.url).href;
     this.listings = [];
-    this.active = "";
+    this.activeIndex = 0;
   }
+
   // convention I enjoy using to define the tag's name
   static get tag() {
     return 'tv-app';
@@ -25,7 +25,7 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
-      active: { type: String }
+      activeIndex: { type: Number },
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -43,6 +43,7 @@ export class TvApp extends LitElement {
       .left-item {
         grid-column: 1;
         margin-top: 50px;
+        width: 775px;
       }
       .right-item {
         grid-column: 2;
@@ -50,7 +51,7 @@ export class TvApp extends LitElement {
         margin-left: 20px;
         margin-top: 50px;
         text-align: center;
-        height: 493px;
+        height: 492px;
         overflow-y: auto;
         padding: 10px;
         -webkit-overflow-scrolling: touch;
@@ -95,12 +96,15 @@ export class TvApp extends LitElement {
         <h2>${this.name}</h2>
         ${
           this.listings.map(
-            (item) => html`
+            (item, index) => html`
               <tv-channel
                 title="${item.title}"
+                ?active="${index === this.activeIndex}"
                 presenter="${item.metadata.author}"
                 @click="${this.itemClick}"
                 timecode="${item.metadata.timecode}"
+                image="${item.metadata.image}"
+                index="${index}"
               >
               </tv-channel>
             `
@@ -108,43 +112,65 @@ export class TvApp extends LitElement {
         }
       </div>
       <!-- dialog -->
-      <sl-dialog label="Dialog" class="dialog">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        <sl-button slot="footer" variant="primary" @click="${this.closeDialog}">Close</sl-button>
-      </sl-dialog>
-    </div>
-    <div class="slideclicker">
-      <button class="previous-slide">Previous Slide</button>
-      <button class="next-slide">Next Slide</button>
+      <div class="slideclicker">
+        <button class="previous-slide" @click="${this.prevSlide}">Previous Slide</button>
+        <button class="next-slide" @click="${this.nextSlide}">Next Slide</button>
+      </div>
     </div>
     `;
   }
-
-  closeDialog(e) {
-    const dialog = this.shadowRoot.querySelector('.dialog');
-    dialog.hide();
-  }
-
   itemClick(e) {
     console.log(e.target);
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector("a11y-media-player").media.currentTime
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').play()
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(e.target.timecode)
+    this.activeIndex= e.target.index;
+    
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').play();
+   
   }
 
-  // LitElement life cycle for when any property changes
   updated(changedProperties) {
-    if (super.updated) {
-      super.updated(changedProperties);
-    }
+    super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === "source" && this[propName]) {
-        this.updateSourceData(this[propName]);
+        this.updateListings(this[propName]);
       }
+
+      if(propName === "activeIndex"){
+        console.log(this.shadowRoot.querySelectorAll("tv-channel"));
+        console.log(this.activeIndex)
+
+        var activeChannel = this.shadowRoot.querySelector("tv-channel[index = '" + this.activeIndex + "' ] ");
+       
+        console.log(activeChannel);
+        this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(activeChannel.timecode);
+      }
+      
     });
   }
 
-  async updateSourceData(source) {
+  prevSlide() {
+    this.activeIndex = Math.max(0, this.activeIndex - 1);
+    
+  }
+
+  nextSlide() {
+    this.activeIndex = Math.min(this.listings.length - 1, this.activeIndex + 1);  
+
+  }
+
+
+  connectedCallback() {
+    super.connectedCallback();
+    
+    setInterval(() => {
+      const currentTime = this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').media.currentTime;
+      if (this.activeIndex + 1 < this.listings.length &&
+          currentTime >= this.listings[this.activeIndex + 1].metadata.timecode) {
+        this.activeIndex++;
+      }
+    }, 1000);
+  }
+
+  async updateListings(source) {
     await fetch(source).then((resp) => resp.ok ? resp.json() : []).then((responseData) => {
       if (responseData.status === 200 && responseData.data.items && responseData.data.items.length > 0) {
         this.listings = [...responseData.data.items];
@@ -152,5 +178,76 @@ export class TvApp extends LitElement {
     });
   }
 }
+  
+/*
+  itemClick(e) {
+    console.log(e.target);
+    this.activeIndex= e.target.index;
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector("a11y-media-player").media.currentTime
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').play()
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(e.target.timecode)
+  }
+
+  prevSlide() {
+    this.activeIndex = Math.max(0, this.activeIndex - 1);
+  }
+
+  nextSlide() {
+    this.activeIndex = Math.min(this.channelList.length - 1, this.activeIndex + 1);  
+  }
+
+  // LitElement life cycle for when any property changes
+  updated(changedProperties) {
+    //if (super.updated) {
+    super.updated(changedProperties);
+    //}
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === "source" && this[propName]) {
+        this.updateListings(this[propName]);
+      }
+
+      if (propName === "activeIndex") {
+        var activeChannel = document.querySelector("tv-channel[index = '" + this.activeIndex + "' ] ");
+        console.log(activeChannel);
+        this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(activeChannel);
+      }
+    });
+  }
+
+  updateSlide(newIndex, updateVideo = true) {
+    // Check if the newIndex is valid and different from the current activeIndex
+    if (newIndex >= 0 && newIndex < this.listings.length && newIndex !== this.activeIndex) {
+      // Update the activeIndex to the new index
+      this.activeIndex = newIndex;
+      
+      // If updateVideo flag is true, seek the video to the new slide's timecode
+      if (updateVideo) {
+        const videoPlayer = this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player');
+        videoPlayer.seek(this.listings[newIndex].metadata.timecode);
+        videoPlayer.play();
+      }
+    }
+  }
+
+connectedCallback() {
+    super.connectedCallback();
+    
+    setInterval(() => {
+      const currentTime = this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').media.currentTime;
+      if (this.activeIndex + 1 < this.channelList.length &&
+          currentTime >= this.channelList[this.activeIndex + 1].metadata.timecode) {
+        this.activeIndex++;
+      }
+    }, 1000);
+  }
+
+  async updateListings(source) {
+    await fetch(source).then((resp) => resp.ok ? resp.json() : []).then((responseData) => {
+      if (responseData.status === 200 && responseData.data.items && responseData.data.items.length > 0) {
+        this.listings = [...responseData.data.items];
+      }
+    });
+  }
+}*/
 // tell the browser about our tag and class it should run when it sees it
 customElements.define(TvApp.tag, TvApp);
