@@ -33,7 +33,6 @@ export class TvApp extends LitElement {
     return [
       css`
       :host {
-
       }
 
       .container {
@@ -88,8 +87,8 @@ export class TvApp extends LitElement {
         <div class="left-item">
           <video-player source="https://www.youtube.com/watch?v=3jS_yEK8qVI" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
         </div>
-        <tv-channel title="Worlds Most Dangerous Escape Room!" presenter="MrBeast">
-          Trying to escape from a challenging escape room that has 10 levels.
+        <tv-channel title="World's Most Dangerous Escape Room!" presenter="${this.listings.length > 0 ? this.listings[this.activeIndex].title : ''}">
+          ${this.listings.length > 0 ? this.listings[this.activeIndex].description : ''}
         </tv-channel>
       </div>
       <div class="right-item">
@@ -119,6 +118,7 @@ export class TvApp extends LitElement {
     </div>
     `;
   }
+
   itemClick(e) {
     console.log(e.target);
     this.activeIndex= e.target.index;
@@ -178,76 +178,6 @@ export class TvApp extends LitElement {
     });
   }
 }
-  
-/*
-  itemClick(e) {
-    console.log(e.target);
-    this.activeIndex= e.target.index;
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector("a11y-media-player").media.currentTime
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').play()
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(e.target.timecode)
-  }
 
-  prevSlide() {
-    this.activeIndex = Math.max(0, this.activeIndex - 1);
-  }
-
-  nextSlide() {
-    this.activeIndex = Math.min(this.channelList.length - 1, this.activeIndex + 1);  
-  }
-
-  // LitElement life cycle for when any property changes
-  updated(changedProperties) {
-    //if (super.updated) {
-    super.updated(changedProperties);
-    //}
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === "source" && this[propName]) {
-        this.updateListings(this[propName]);
-      }
-
-      if (propName === "activeIndex") {
-        var activeChannel = document.querySelector("tv-channel[index = '" + this.activeIndex + "' ] ");
-        console.log(activeChannel);
-        this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(activeChannel);
-      }
-    });
-  }
-
-  updateSlide(newIndex, updateVideo = true) {
-    // Check if the newIndex is valid and different from the current activeIndex
-    if (newIndex >= 0 && newIndex < this.listings.length && newIndex !== this.activeIndex) {
-      // Update the activeIndex to the new index
-      this.activeIndex = newIndex;
-      
-      // If updateVideo flag is true, seek the video to the new slide's timecode
-      if (updateVideo) {
-        const videoPlayer = this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player');
-        videoPlayer.seek(this.listings[newIndex].metadata.timecode);
-        videoPlayer.play();
-      }
-    }
-  }
-
-connectedCallback() {
-    super.connectedCallback();
-    
-    setInterval(() => {
-      const currentTime = this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').media.currentTime;
-      if (this.activeIndex + 1 < this.channelList.length &&
-          currentTime >= this.channelList[this.activeIndex + 1].metadata.timecode) {
-        this.activeIndex++;
-      }
-    }, 1000);
-  }
-
-  async updateListings(source) {
-    await fetch(source).then((resp) => resp.ok ? resp.json() : []).then((responseData) => {
-      if (responseData.status === 200 && responseData.data.items && responseData.data.items.length > 0) {
-        this.listings = [...responseData.data.items];
-      }
-    });
-  }
-}*/
 // tell the browser about our tag and class it should run when it sees it
 customElements.define(TvApp.tag, TvApp);

@@ -33,7 +33,7 @@ export class TvChannel extends LitElement {
   static get styles() {
     return css`
       :host([active]) {
-        color: #007bff;
+        color: red;
       }
 
       .wrapper {

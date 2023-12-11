@@ -2,7 +2,7 @@
   "status": 200,
   "data": {
     "id": "123-123-123-123",
-    "title": "Worlds Most Dangerous Escape Room!",
+    "title": "World's Most Dangerous Escape Room!",
     "author": "MrBeast",
     "description": "Trying to escape from a challenging escape room that has 10 levels.",
     "license": "by-sa",
@@ -16,7 +16,7 @@
         "order": 0,
         "parent": null,
         "title": "Intro",
-        "description": "",
+        "description": "Explaining the rules of the escape room and how it works.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 0,
@@ -33,14 +33,13 @@
         "order": 0,
         "parent": null,
         "title": "Level 1",
-        "description": "The first level of the escape room.",
+        "description": "The first level of the escape room. A room with spikes on the sides as the walls close in.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 13,
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182357250254311525/Level_2.png?ex=658466ff&is=6571f1ff&hm=e46eae5c1b8a3ef29be2f16b45bdf45bf0532cf951c2af23af6bb39a35e36923&=&format=webp&quality=lossless&width=1108&height=565"
-
         }
       },
       {
@@ -51,7 +50,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 2",
-        "description": "The second level of the escape room.",
+        "description": "The second level of the escape room. An upside down room where you are tasked with finding a key to escape.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 49,
@@ -68,7 +67,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 3",
-        "description": "The third level of the escape room.",
+        "description": "The third level of the escape room. This room is themed like the inside of a minecraft world.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 95,
@@ -85,7 +84,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 4",
-        "description": "The fourth level of the escape room.?",
+        "description": "The fourth level of the escape room. You are tasked with finding a way to unlock the door to escape.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 139,
@@ -102,7 +101,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 5",
-        "description": "The fifth level of the escape room.?",
+        "description": "The fifth level of the escape room. A hotel with dozens of doors, and you are tasked with finding the correct one to escape.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 183,
@@ -119,7 +118,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 6",
-        "description": "The sixth level of the escape room.?",
+        "description": "The sixth level of the escape room. A jungle themed room that is filled with snakes.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 197,
@@ -136,7 +135,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 7",
-        "description": "The seventh level of the escape room.?",
+        "description": "The seventh level of the escape room. Candy fills the room, and you have to find the right chocolate bar with the ticket to escape.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 243,
@@ -153,7 +152,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 8",
-        "description": "The eighth level of the escape room.?",
+        "description": "The eighth level of the escape room. Out of hundreds of books, you have to find the right one that opens up the trap door.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 301,
@@ -170,7 +169,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 9",
-        "description": "The ninth level of the escape room.?",
+        "description": "The ninth level of the escape room. You have to run back to one of the previous levels to find a weapon that can break the strong glass.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 353,
@@ -187,7 +186,7 @@
         "order": 0,
         "parent": null,
         "title": "Level 10",
-        "description": "The tenth level of the escape room.?",
+        "description": "The tenth level of the escape room. In this level you have to hop across the platforms without falling in the lava to reach the money and survive the escape room.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 395,
