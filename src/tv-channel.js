@@ -11,6 +11,7 @@ export class TvChannel extends LitElement {
     this.presenter = '';
     this.image = '';
     this.description = '';
+    this.minutes = '';
   }
   // convention I enjoy using to define the tag's name
   static get tag() {
@@ -26,7 +27,8 @@ export class TvChannel extends LitElement {
       image: { type: String },
       description: { type: String },
       index: { type: Number },
-      active: { type: Boolean, reflect: true }
+      active: { type: Boolean, reflect: true },
+      minutes: { type: String }
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -50,6 +52,7 @@ export class TvChannel extends LitElement {
         <h3>${this.title}</h3>
         <h3>${this.video}</h3>
         <h4>${this.presenter}</h4>
+        <h4>${this.minutes}</h4>
         <slot></slot>
       </div>
       `;

@@ -11,15 +11,14 @@
       {
         "id": "item-1",
         "indent": 0,
-        "location": "hax-wp-killer.html",
-        "slug": "hax-wp-killer",
         "order": 0,
         "parent": null,
         "title": "Intro",
-        "description": "Explaining the rules of the escape room and how it works.",
+        "description": "Explanation of the rules of the escape room and how it works.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 0,
+          "minutes": "0:00",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1181658925569941644/Intro.png?ex=6581dca2&is=656f67a2&hm=1bb8b68b347e58682ed304da56fa56e35893a54e6374e81f78c4d85a0aaaf7ee&=&format=webp&quality=lossless&width=1112&height=565"
@@ -28,8 +27,6 @@
       {
         "id": "item-2",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 1",
@@ -37,6 +34,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 13,
+          "minutes": "0:13",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182357250254311525/Level_2.png?ex=658466ff&is=6571f1ff&hm=e46eae5c1b8a3ef29be2f16b45bdf45bf0532cf951c2af23af6bb39a35e36923&=&format=webp&quality=lossless&width=1108&height=565"
@@ -45,8 +43,6 @@
       {
         "id": "item-3",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 2",
@@ -54,6 +50,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 49,
+          "minutes": "0:49",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1181661319804506183/Level_1.png?ex=6581dedc&is=656f69dc&hm=0b47f04d7c89a1228ab2b4605b3b13eb4abde721adce36f7806f58fad06ec29e&=&format=webp&quality=lossless&width=1115&height=565"
@@ -62,8 +59,6 @@
       {
         "id": "item-4",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 3",
@@ -71,6 +66,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 95,
+          "minutes": "1:35",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182357249809723514/Level_3.png?ex=658466ff&is=6571f1ff&hm=9351e8d4f943ce4ed37378d1503b1890b0782a2f7eae65105910791fbc537a05&=&format=webp&quality=lossless&width=1116&height=565"
@@ -79,8 +75,6 @@
       {
         "id": "item-5",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 4",
@@ -88,6 +82,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 139,
+          "minutes": "2:19",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182353835658850334/Level_4.png?ex=658463d1&is=6571eed1&hm=aeab505b8eea6f4b3ae4fa01cfdae421c020a337c8b8b25125856414c882aa31&=&format=webp&quality=lossless&width=1112&height=565"
@@ -96,8 +91,6 @@
       {
         "id": "item-6",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 5",
@@ -105,6 +98,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 183,
+          "minutes": "3:03",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182353836082479144/Level_5.png?ex=658463d1&is=6571eed1&hm=ac8f88a910f9c90870c2225de967d8bdce36fb9c8b3a1409b3355ff50d936d7f&=&format=webp&quality=lossless&width=1115&height=565"
@@ -113,8 +107,6 @@
       {
         "id": "item-7",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 6",
@@ -122,6 +114,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 197,
+          "minutes": "3:17",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182357249264455793/Level_6.png?ex=658466ff&is=6571f1ff&hm=b87c0013b94a0cac84606ef6c570b94978f28a755f71031a626f3e45cc65a1c2&=&format=webp&quality=lossless&width=1115&height=565"
@@ -130,8 +123,6 @@
       {
         "id": "item-8",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 7",
@@ -139,6 +130,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 243,
+          "minutes": "4:03",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182353836900364318/Level_7.png?ex=658463d1&is=6571eed1&hm=c9a4e704b1e157cfa294228ead700517efac74b91edeb2da710117130ec110f7&=&format=webp&quality=lossless&width=1112&height=565"
@@ -147,8 +139,6 @@
       {
         "id": "item-9",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 8",
@@ -156,6 +146,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 301,
+          "minutes": "5:01",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182357248769536030/Level_8.png?ex=658466ff&is=6571f1ff&hm=3ee8f1aae2623a98186d99fe8963af1a30391e2dd67205a2ae8299e0fffbaa3c&=&format=webp&quality=lossless&width=1115&height=565"
@@ -164,8 +155,6 @@
       {
         "id": "item-10",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 9",
@@ -173,6 +162,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 353,
+          "minutes": "5:53",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182353837768573008/Level_9.png?ex=658463d1&is=6571eed1&hm=3e6b47b5fcd4822355d28cf3265a6b62e17d96790e9c033dca6ec90b9dc123e0&=&format=webp&quality=lossless&width=1108&height=565"
@@ -181,8 +171,6 @@
       {
         "id": "item-11",
         "indent": 0,
-        "location": "this-is-water.html",
-        "slug": "this-is-water",
         "order": 0,
         "parent": null,
         "title": "Level 10",
@@ -190,6 +178,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=3jS_yEK8qVI",
           "timecode": 395,
+          "minutes": "6:35",
           "created": 1697033522,
           "updated": 1697034021,
           "image": "https://media.discordapp.net/attachments/1181658371246538793/1182353838074769448/Level_10.png?ex=658463d2&is=6571eed2&hm=11acb767aa43bac2bb6358fdceec9c0f8ca69976ddb4e6ce140e6fe385a5c1f7&=&format=webp&quality=lossless&width=1112&height=565"

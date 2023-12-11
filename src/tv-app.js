@@ -102,6 +102,7 @@ export class TvApp extends LitElement {
                 presenter="${item.metadata.author}"
                 @click="${this.itemClick}"
                 timecode="${item.metadata.timecode}"
+                minutes="${item.metadata.minutes}"
                 image="${item.metadata.image}"
                 index="${index}"
               >
