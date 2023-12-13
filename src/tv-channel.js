@@ -36,8 +36,14 @@ export class TvChannel extends LitElement {
     return css`
       :host([active]) {
         color: red;
+        background-color: red;
       }
-
+      :host {
+        display: block;
+        padding: 10px;
+        background-color: #EEEE;
+        transition: background-color ease;
+      }
       .wrapper {
         padding: 13px;
         background-color: #eeeeee;
