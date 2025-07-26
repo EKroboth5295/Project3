@@ -1,7 +1,3 @@
-<p align="center">
-  <img width="200" src="https://open-wc.org/hero.png" alt="App Logo">
-</p>
-
 # YouTube Video Playback App
 
 This project is a simplified YouTube-style web application built with modern JavaScript and web components. It allows users to watch an embedded video with responsive design, timestamp controls, and fast-forward functionality.
