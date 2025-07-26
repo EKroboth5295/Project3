@@ -2,9 +2,14 @@
   <img width="200" src="https://open-wc.org/hero.png"></img>
 </p>
 
-## Open-wc Starter App
+## This project is a simplified YouTube-style web application built with modern JavaScript and web components. It allows users to browse, search, and watch embedded videos with a clean, responsive UI.
 
-[![Built with open-wc recommendations](https://img.shields.io/badge/built%20with-open--wc-blue.svg)](https://github.com/open-wc)
+Features include:
+- Video browsing and playback
+- Search functionality
+- Responsive design
+- Lightweight and fast performance
+- Built with open-wc and modern web standards
 
 ## Quickstart
 
