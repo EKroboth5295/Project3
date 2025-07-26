@@ -1,18 +1,18 @@
 <p align="center">
-  <img width="200" src="https://open-wc.org/hero.png"></img>
+  <img width="200" src="https://open-wc.org/hero.png" alt="App Logo">
 </p>
 
-## This project is a simplified YouTube-style web application built with modern JavaScript and web components. It allows users to browse, search, and watch embedded videos with a clean, responsive UI.
+# YouTube Video Playback App
 
-Features include:
-- Video browsing and playback
-- Search functionality
-- Responsive design
+This project is a simplified YouTube-style web application built with modern JavaScript and web components. It allows users to watch an embedded video with responsive design, timestamp controls, and fast-forward functionality.
+
+## Features include:
+- Video playback with fast-forward and timestamp jump
+- Responsive design for all screen sizes
 - Lightweight and fast performance
 - Built with open-wc and modern web standards
 
 ## Quickstart
-
 To get started:
 
 ```bash
